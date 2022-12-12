@@ -41,12 +41,14 @@
 #  define CFG_TUSB_MCU				OPT_MCU_RP2040
 # elif defined(__SAME70Q20B__)
 #  define CFG_TUSB_MCU				OPT_MCU_SAMX7X
+#  define CFG_TUSB_MEM_SECTION		__attribute__((section(".ram_nocache")))
 # else
 # error Unsupported MCU
 # endif
 #endif
 
-#define CFG_TUSB_RHPORT0_MODE     OPT_MODE_DEVICE
+//#define CFG_TUSB_RHPORT0_MODE     (OPT_MODE_DEVICE | OPT_MODE_FULL_SPEED)
+#define CFG_TUSB_RHPORT0_MODE     (OPT_MODE_DEVICE)
 
 #ifndef CFG_TUSB_OS
 # define CFG_TUSB_OS              OPT_OS_FREERTOS
@@ -81,8 +83,8 @@
 #endif
 
 //------------- CLASS -------------//
-#define CFG_TUD_HID              (2)
-#define CFG_TUD_CDC              (1)
+#define CFG_TUD_HID              (0)
+#define CFG_TUD_CDC              (2)
 #define CFG_TUD_MSC              (0)
 #define CFG_TUD_MIDI             (0)
 #define CFG_TUD_VENDOR           (0)
