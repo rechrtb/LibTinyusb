@@ -34,14 +34,23 @@
 // COMMON CONFIGURATION
 //--------------------------------------------------------------------
 
+ /* USB DMA on some MCUs can only access a specific SRAM region with restriction on alignment.
+  * Tinyusb use follows macros to declare transferring memory so that they can be put
+  * into those specific section.
+  * e.g
+  * - CFG_TUSB_MEM SECTION : __attribute__ (( section(".usb_ram") ))
+  * - CFG_TUSB_MEM_ALIGN   : __attribute__ ((aligned(4)))
+  */
+
 #ifndef CFG_TUSB_MCU
 # if defined(__SAME54P20A__)
-#  define  CFG_TUSB_MCU				OPT_MCU_SAME5X
-# elif defined(__RP2040__)
-#  define CFG_TUSB_MCU				OPT_MCU_RP2040
+#  define CFG_TUSB_MCU				OPT_MCU_SAME5X
+#  define CFG_TUSB_MEM_SECTION		/* nothing */
+#  define CFG_TUSB_MEM_ALIGN		__attribute__ ((aligned(4)))
 # elif defined(__SAME70Q20B__)
 #  define CFG_TUSB_MCU				OPT_MCU_SAMX7X
 #  define CFG_TUSB_MEM_SECTION		__attribute__((section(".ram_nocache")))
+#  define CFG_TUSB_MEM_ALIGN		__attribute__ ((aligned(4)))
 # else
 # error Unsupported MCU
 # endif
@@ -59,21 +68,6 @@
 #define CFG_TUSB_DEBUG           0
 #endif
 
-/* USB DMA on some MCUs can only access a specific SRAM region with restriction on alignment.
- * Tinyusb use follows macros to declare transferring memory so that they can be put
- * into those specific section.
- * e.g
- * - CFG_TUSB_MEM SECTION : __attribute__ (( section(".usb_ram") ))
- * - CFG_TUSB_MEM_ALIGN   : __attribute__ ((aligned(4)))
- */
-#ifndef CFG_TUSB_MEM_SECTION
-#define CFG_TUSB_MEM_SECTION
-#endif
-
-#ifndef CFG_TUSB_MEM_ALIGN
-#define CFG_TUSB_MEM_ALIGN          __attribute__ ((aligned(4)))
-#endif
-
 //--------------------------------------------------------------------
 // DEVICE CONFIGURATION
 //--------------------------------------------------------------------
@@ -84,19 +78,17 @@
 
 //------------- CLASS -------------//
 #define CFG_TUD_HID              (0)
-#define CFG_TUD_CDC              (2)
+#define CFG_TUD_CDC              (1)
 #define CFG_TUD_MSC              (0)
 #define CFG_TUD_MIDI             (0)
 #define CFG_TUD_VENDOR           (0)
 
-#define CFG_TUD_CDC_RX_BUFSIZE  (256)
-#define CFG_TUD_CDC_TX_BUFSIZE  (256)
+// CDC FIFO size of TX and RX
+#define CFG_TUD_CDC_RX_BUFSIZE   (TUD_OPT_HIGH_SPEED ? 512 : 64)
+#define CFG_TUD_CDC_TX_BUFSIZE   (TUD_OPT_HIGH_SPEED ? 512 : 64)
 
-#define CFG_TUD_MIDI_RX_BUFSIZE (64)
-#define CFG_TUD_MIDI_TX_BUFSIZE (64)
-
-// HID buffer size Should be sufficient to hold ID (if any) + Data
-#define CFG_TUD_HID_EP_BUFSIZE  (64)
+// CDC Endpoint transfer buffer size, more is faster
+#define CFG_TUD_CDC_EP_BUFSIZE   (TUD_OPT_HIGH_SPEED ? 512 : 64)
 
 #ifdef __cplusplus
  }
