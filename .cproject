@@ -106,7 +106,7 @@
 							<builder buildPath="${workspace_loc:/LibTinyusb}/SAME70" id="cdt.managedbuild.builder.gnu.cross.1146788479" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.989955574" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.965777758" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.most" valueType="enumerated"/>
-								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1476614886" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.none" id="gnu.c.compiler.option.debugging.level.1476614886" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.853275890" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__SAME70Q20B__"/>
 									<listOptionValue builtIn="false" value="noexcept="/>
@@ -122,12 +122,12 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeRTOS/src/portable/GCC/ARM_CM7/r0p1}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.1871809799" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -mfp16-format=ieee -mno-unaligned-access -ffunction-sections -fdata-sections -nostdlib -Wundef -Wdouble-promotion -Werror=return-type -Werror=implicit -fsingle-precision-constant &quot;-Wa,-ahl=$*.s&quot; -fstack-usage -fdump-rtl-expand" valueType="string"/>
-								<option id="gnu.c.compiler.option.optimization.flags.686594505" name="Other optimization flags" superClass="gnu.c.compiler.option.optimization.flags" useByScannerDiscovery="false" value="-g" valueType="string"/>
+								<option id="gnu.c.compiler.option.optimization.flags.686594505" name="Other optimization flags" superClass="gnu.c.compiler.option.optimization.flags" useByScannerDiscovery="false" value="" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1095302015" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1064791493" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
 								<option id="gnu.cpp.compiler.option.optimization.level.46143850" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
-								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.1069407582" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="gnu.cpp.compiler.option.debugging.level.1069407582" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.494764396" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="__SAME70Q20B__"/>
 									<listOptionValue builtIn="false" value="_ecv_array="/>
@@ -142,7 +142,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeRTOS/src/portable/GCC/ARM_CM7/r0p1}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.other.other.154109392" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mfp16-format=ieee -ffunction-sections -fdata-sections -fno-threadsafe-statics -fno-rtti -fexceptions -nostdlib -Wundef -Wdouble-promotion -Werror=return-type -Wsuggest-override -fsingle-precision-constant &quot;-Wa,-ahl=$*.s&quot; -fstack-usage -fdump-rtl-expand" valueType="string"/>
-								<option id="gnu.cpp.compiler.option.optimization.flags.874799728" name="Other optimization flags" superClass="gnu.cpp.compiler.option.optimization.flags" useByScannerDiscovery="false" value="-g" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.optimization.flags.874799728" name="Other optimization flags" superClass="gnu.cpp.compiler.option.optimization.flags" useByScannerDiscovery="false" value="" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1962777761" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1922637230" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
