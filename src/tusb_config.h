@@ -83,6 +83,12 @@
 #define CFG_TUD_MIDI             (0)
 #define CFG_TUD_VENDOR           (0)
 
+#define CFG_TUH_ENUMERATION_BUFSIZE 256
+#define CFG_TUH_HUB              (1)
+#define CFG_TUH_MSC              (1)
+#define CFG_TUH_DEVICE_MAX       (CFG_TUH_HUB ? 4 : 1) // hub typically has 4 ports
+#define CFG_TUH_MSC_MAXLUN       4 // typical for most card reader
+
 // CDC FIFO size of TX and RX
 #define CFG_TUD_CDC_RX_BUFSIZE   (TUD_OPT_HIGH_SPEED ? 512 : 64)
 #define CFG_TUD_CDC_TX_BUFSIZE   (TUD_OPT_HIGH_SPEED ? 512 : 64)
