@@ -34,4 +34,6 @@
 # Output folders
 /RP2040/
 /SAME5x/
+/SAME5x_Debug/
 /SAME70/
+/SAME70_Debug/
